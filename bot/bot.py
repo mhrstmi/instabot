@@ -101,7 +101,8 @@ class Bot(webdriver.Firefox):
             while True:  # here we find the TAG and save its  info
 
                 try:
-                    tag_el = WebDriverWait(self, 1).until(EC.visibility_of_element_located(
+                    time.sleep(3)
+                    tag_el = WebDriverWait(self, 3).until(EC.visibility_of_element_located(
                         (By.XPATH, "//div[@class='zKGE8 wLYRG']"))).click()
                     print('ckick on Tag')
                     tag_save = WebDriverWait(self, 3).until(EC.visibility_of_element_located(
