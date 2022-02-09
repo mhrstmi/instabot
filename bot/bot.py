@@ -201,7 +201,7 @@ class Bot(webdriver.Firefox):
                     if parent_user_el:
                         print('Saving TAGs username... \n')
                         user = parent_user_el.find_element_by_xpath(
-                            ".//h2[@class='_7UhW9       fKFbl yUEEX   KV-D4              fDxYl     ']")
+                            ".//h2[@class='_7UhW9       fKFbl yUEEX    KV-D4              fDxYl     ']")
                         tag_username = user.get_attribute("innerHTML")
                         dict[values][1] = str(tag_username)
                         print('saved')
@@ -213,7 +213,7 @@ class Bot(webdriver.Firefox):
                 try:
                     print('looking for flwers sections... \n')
                     parent_el = WebDriverWait(self, 5).until(
-                        EC.visibility_of_element_located((By.XPATH, "//a[@class='-nal3 ']")))
+                        EC.visibility_of_element_located((By.XPATH, "//div[@class='_7UhW9    vy6Bb     MMzan   KV-D4          uL8Hv        T0kll ']")))
 
                     if parent_el:
                         print('Saving flwers... \n')
