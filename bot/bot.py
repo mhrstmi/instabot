@@ -9,7 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 list1 = []
 dict = {}
 list2 = []
-tag_check = ['See Post', 'Visit Link', 'See location', 'See Location']
+tag_check = ['See Post', 'Visit Link',
+             'See location', 'See Location', 'See Hashtag']
 
 
 class Bot(webdriver.Firefox):
@@ -207,7 +208,7 @@ class Bot(webdriver.Firefox):
 
                 except:
                     print('Couldnt find accounts username !!! CONTINUING... \n')
-                    continue
+                    pass
 
                 try:
                     print('looking for flwers sections... \n')
@@ -228,11 +229,11 @@ class Bot(webdriver.Firefox):
                         time.sleep(3)
                 except:
                     print('No flwers sections !!! CONTINUING... \n')
-                    continue
+                    pass
 
             except:
                 print('no flwers and users \n')
-                continue
+                pass
 
         list2.clear()
         print(list1)
