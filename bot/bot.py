@@ -181,7 +181,7 @@ class Bot(webdriver.Firefox):
                 try:
                     print('click on TAG ... \n')
                     acc_el = WebDriverWait(self, 20).until(
-                        EC.visibility_of_element_located((By.CSS_SELECTOR, ".-qQT3")))
+                        EC.visibility_of_element_located((By.XPATH, "//a[@class='-qQT3']")))
                     if acc_el:
 
                         acc_el.click()
