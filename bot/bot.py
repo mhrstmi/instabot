@@ -82,7 +82,7 @@ class Bot(webdriver.Firefox):
                 try:
                     print('Enter TAGs account... \n')
                     acc_el = WebDriverWait(self, 20).until(
-                        EC.visibility_of_element_located((By.CSS_SELECTOR, ".-qQT3")))
+                        EC.visibility_of_element_located((By.XPATH, "//a[@class='-qQT3']")))
                     if acc_el:
 
                         acc_el.click()
@@ -211,17 +211,22 @@ class Bot(webdriver.Firefox):
                     pass
 
                 try:
-                    print('looking for flwers sections... \n')
-                    parent_el = WebDriverWait(self, 5).until(
-                        EC.visibility_of_element_located((By.XPATH, "//div[@class='_7UhW9    vy6Bb     MMzan   KV-D4          uL8Hv        T0kll ']")))
+                    print('looking for flwers section... \n')
+                    flwers_el = WebDriverWait(self, 5).until(
+                        EC.visibility_of_all_elements_located((By.XPATH, "//span[@class='g47SY ']")))
 
-                    if parent_el:
+                    if flwers_el:
                         print('Saving flwers... \n')
-                        flwers_num = parent_el.find_element_by_xpath(
-                            ".//span[@class='g47SY ']").get_attribute("title")
+                        count = 0
+                        for el in flwers_el:
+                            if count == 1:
+                                flwers_num = el.get_attribute(
+                                    "innerHTML")
+                            count += 1
+
                         if dict[values][5] == '':
                             dict[values][5] = str(flwers_num)
-                            print('saved')
+                            print('saved for first time')
                         else:
                             dict[values][6] = str(flwers_num)
                             print('saved')
